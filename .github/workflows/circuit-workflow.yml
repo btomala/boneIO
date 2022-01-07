@@ -24,8 +24,8 @@ jobs:
         # list of circuits here
         # - dir: "'boneIO\ -\ input\ board_BBB'"
         #   filename: "'boneIO_input\ board_BBB'"
-        - dir: 'boneIO\ -\ relay\ board\ 24x10A'
-          filename: 'boneIO\ -\ relay\ board'
+        - dir: 'boneIO - relay board 24x10A'
+          filename: 'boneIO - relay board'
         # - dir: "'boneIO\ -\ relay\ board\ 24x16A'"
         #   filename: "'boneIO\ -\ relay\ board'"
         # - dir: "'boneIO\ -\ relay\ board\ 32x5A'"
