@@ -41,7 +41,7 @@ jobs:
     - uses: actions/checkout@v2
     - uses: INTI-CMNB/KiBot@v1
       with:
-        entrypoint: /bin/echo
+        entrypoint: /bin/pwd
         config: Circuit/config.kibot.yml
         dir: output
         board: "'Circuit/${{matrix.dir}}/${{matrix.filename}}.kicad_pcb'"
