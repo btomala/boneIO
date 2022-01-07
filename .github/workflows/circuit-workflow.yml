@@ -40,11 +40,11 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - uses: INTI-CMNB/KiBot@v1
-      with:
-        config: Circuit/config.kibot.yml
-        dir: output
-        schema: '"Circuit/${{matrix.dir}}/${{matrix.filename}}.sch"'
-        board:  '"Circuit/${{matrix.dir}}/${{matrix.filename}}.kicad_pcb"'
+      env:
+        INPUT_CONFIG: Circuit/config.kibot.yml
+        INPUT_DIR: output
+        INPUT_SCHEMA: '"Circuit/${{matrix.dir}}/${{matrix.filename}}.sch"'
+        INPUT_BOARD:  '"Circuit/${{matrix.dir}}/${{matrix.filename}}.kicad_pcb"'
     - name: upload results
       uses: actions/upload-artifact@v2
       with:
