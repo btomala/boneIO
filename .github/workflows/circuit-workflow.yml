@@ -22,20 +22,20 @@ jobs:
       matrix:
         include:
         # list of circuits here
-        - dir: 'boneIO - input board_BBB'
-          filename: 'boneIO_input board_BBB'
-        - dir: 'boneIO - relay board 24x10A'
-          filename: 'boneIO - relay board'
-        - dir: 'boneIO - relay board 24x16A'
-          filename: 'boneIO - relay board'
-        - dir: 'boneIO - relay board 32x5A'
-          filename: 'boneIO - relay board 32x5A'
-        - dir: 'boneIO - shield input board v0.2'
-          filename: 'shield input board v0.2'
-        - dir: 'boneIO - shutter board 32x10A'
-          filename: 'boneIO - shutter board 32x10A'
-        - dir: 'boneIO - SSR DIMMER'
-          filename: 'boneIO - SSR DIMMER'
+        - dir: 'boneIO\ -\ input\ board_BBB'
+          filename: 'boneIO_input\ board_BBB'
+        - dir: 'boneIO\ -\ relay\ board\ 24x10A'
+          filename: 'boneIO\ -\ relay\ board'
+        - dir: 'boneIO\ -\ relay\ board\ 24x16A'
+          filename: 'boneIO\ -\ relay\ board'
+        - dir: 'boneIO\ -\ relay\ board\ 32x5A'
+          filename: 'boneIO\ -\ relay\ board\ 32x5A'
+        - dir: 'boneIO\ -\ shield\ input\ board\ v0.2'
+          filename: 'shield\ input\ board\ v0.2'
+        - dir: 'boneIO\ -\ shutter\ board\ 32x10A'
+          filename: 'boneIO\ -\ shutter\ board\ 32x10A'
+        - dir: 'boneIO\ -\ SSR\ DIMMER'
+          filename: 'boneIO\ -\ SSR\ DIMMER'
 
     steps:
     - uses: actions/checkout@v2
