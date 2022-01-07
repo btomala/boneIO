@@ -22,10 +22,10 @@ jobs:
       matrix:
         include:
         # list of circuits here
-        - dir: "'boneIO\ -\ input\ board_BBB'"
-          filename: "'boneIO_input\ board_BBB'"
-        - dir: "'boneIO - relay board 24x10A'"
-          filename: "'boneIO - relay board'"
+        # - dir: "'boneIO\ -\ input\ board_BBB'"
+        #   filename: "'boneIO_input\ board_BBB'"
+        - dir: 'boneIO - relay board 24x10A'
+          filename: 'boneIO - relay board'
         # - dir: "'boneIO\ -\ relay\ board\ 24x16A'"
         #   filename: "'boneIO\ -\ relay\ board'"
         # - dir: "'boneIO\ -\ relay\ board\ 32x5A'"
@@ -43,8 +43,8 @@ jobs:
       with:
         config: Circuit/config.kibot.yml
         dir: output
-        schema: 'Circuit/${{matrix.dir}}/${{matrix.filename}}.sch'
-        board:  'Circuit/${{matrix.dir}}/${{matrix.filename}}.kicad_pcb'
+        schema: '"Circuit/${{matrix.dir}}/${{matrix.filename}}.sch"'
+        board:  '"Circuit/${{matrix.dir}}/${{matrix.filename}}.kicad_pcb"'
     - name: upload results
       uses: actions/upload-artifact@v2
       with:
