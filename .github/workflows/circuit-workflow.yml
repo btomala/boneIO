@@ -42,6 +42,7 @@ jobs:
     - uses: INTI-CMNB/KiBot@v1
       with:
         entrypoint: /bin/echo
+        board: "'Circuit/${{matrix.dir}}/${{matrix.filename}}.sch'"
         args: -c Circuit/config.kibot.yml -d output -b 'Circuit/${{matrix.dir}}/${{matrix.filename}}.sch' -e 'Circuit/${{matrix.dir}}/${{matrix.filename}}.kicad_pcb'
     - name: upload results
       uses: actions/upload-artifact@v2
