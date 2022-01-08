@@ -49,7 +49,7 @@ jobs:
         path: output
     - uses: actions/checkout@v2
       with:
-        repository: ${{gitbub.repository}}.wiki
+        repository: ${{github.repository}}.wiki
     - name: add output pdf to wiki
       run: |
         git config --local user.email "action@github.com"
