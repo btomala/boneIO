@@ -67,4 +67,4 @@ jobs:
         git config --local user.email {{$github.actor}}}
         git add *-schematic.pdf
         git commit -m "update schemats from master@${{github.ref}}"
-        git push "https://${{github.actor}}:${{secret.GITHUB_TOKEN}}@github.com/${{github.repository}}.wiki.git"
+        git push "https://${{github.actor}}:${{secrets.GITHUB_TOKEN}}@github.com/${{github.repository}}.wiki.git"
