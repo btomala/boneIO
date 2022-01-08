@@ -49,9 +49,9 @@ jobs:
         path: output
 
   update-wiki:
-    name: update wiki
+    name: update schemats on wiki
     needs: circuits
-    # if: ${{ github.ref == 'master'}}
+    # if: ${{ github.ref == 'refs/tags/master'}}
     runs-on: ubuntu-latest
 
     steps:
@@ -62,18 +62,9 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: output
-    - run: |
-        echo ${{github.ref}}
-        ls -la
-        pwd
     - name: add output pdf to wiki
       run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
+        git config --local user.email {{$github.actor}}}
         git add *-schematic.pdf
         git commit -m "update schemats from master@${{github.ref}}"
-    - name: Push changes to wiki repository
-      uses: ad-m/github-push-action@master
-      with:
-        repository: ${{github.repository}}.wiki
-        github_token: ${{secrets.GITHUB_TOKEN}}
+        git push "https://${{github.actor}}:${{secret.GITHUB_TOKEN}}@github.com/${{github.repository}}.wiki.git"
