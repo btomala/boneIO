@@ -1,4 +1,4 @@
-name: circuit-workflow
+name: circuit-pr-workflow
 on:
   push:
     paths:
@@ -7,11 +7,11 @@ on:
     - '**config.kibot.yml'
     branches:
     - main
-  pull_request:
-    paths:
-      - '**.sch'
-      - '**.kicad_pcb'
-      - '**/config.kibot.yml'
+  # pull_request:
+  #   paths:
+  #     - '**.sch'
+  #     - '**.kicad_pcb'
+  #     - '**/config.kibot.yml'
 
 jobs:
   circuits:
