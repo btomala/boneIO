@@ -51,6 +51,7 @@ jobs:
   update-wiki:
     name: update schemats on wiki
     needs: circuits
+    if: ${{ github.ref == 'refs/pull/1/merge'}}
     # if: ${{ github.ref == 'refs/tags/master'}}
     runs-on: ubuntu-latest
 
@@ -62,9 +63,11 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: output
+    - name: echo
+      run: ehco ${{github}}
     - name: add output pdf to wiki
       run: |
-        git config --local user.email {{$github.actor}}}
+        git config --local user.email "{{$github.actor}}}""
         git add *-schematic.pdf
         git commit -m "update schemats from master@${{github.ref}}"
         git push "https://${{github.actor}}:${{secrets.GITHUB_TOKEN}}@github.com/${{github.repository}}.wiki.git"
