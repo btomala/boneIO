@@ -51,6 +51,7 @@ jobs:
   update-wiki:
     name: update wiki
     needs: circuits
+    # if: ${{ github.ref == 'master'}}
     runs-on: ubuntu-latest
 
     steps:
@@ -62,14 +63,15 @@ jobs:
       with:
         name: output
     - run: |
+        echo ${{github.ref}}
         ls -la
         pwd
     - name: add output pdf to wiki
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git add output/*.pdf
-        git commil -m "update schemats from master@${{github.ref}}"
+        git add *-schematic.pdf
+        git commit -m "update schemats from master@${{github.ref}}"
     - name: Push changes to wiki repository
       uses: ad-m/github-push-action@master
       with:
