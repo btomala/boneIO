@@ -22,30 +22,33 @@ jobs:
       matrix:
         include:
         # list of circuits here
-        # - dir: "'boneIO\ -\ input\ board_BBB'"
-        #   filename: "'boneIO_input\ board_BBB'"
-        - dir: 'boneIO\ -\ relay\ board\ 24x10A'
-          filename: 'boneIO\ -\ relay\ board'
-        # - dir: "'boneIO\ -\ relay\ board\ 24x16A'"
-        #   filename: "'boneIO\ -\ relay\ board'"
-        # - dir: "'boneIO\ -\ relay\ board\ 32x5A'"
-        #   filename: "'boneIO\ -\ relay\ board\ 32x5A'"
-        # - dir: "'boneIO\ -\ shield\ input\ board\ v0.2'"
-        #   filename: "'shield\ input\ board\ v0.2'"
-        # - dir: "'boneIO\ -\ shutter\ board\ 32x10A'"
-        #   filename: "'boneIO\ -\ shutter\ board\ 32x10A'"
-        # - dir: "'boneIO\ -\ SSR\ DIMMER'"
-        #   filename: "'boneIO\ -\ SSR\ DIMMER'"
+        - dir: 'boneIO_-_input_board_BBB'
+          filename: 'boneIO_input_board_BBB'
+        - dir: 'boneIO_-_relay_board_24x10A'
+          filename: 'boneIO_-_relay_board'
+        - dir: 'boneIO_-_relay_board_24x16A'
+          filename: 'boneIO_-_relay_board'
+        - dir: 'boneIO_-_relay_board_32x5A'
+          filename: 'boneIO_-_relay_board_32x5A'
+        - dir: 'boneIO_-_shield_input_board_v0.2'
+          filename: 'shield_input_board_v0.2'
+        - dir: 'boneIO_-_shutter_board_32x10A'
+          filename: 'boneIO_-_shutter_board_32x10A'
+        - dir: 'boneIO_-_SSR_DIMMER'
+          filename: 'boneIO_-_SSR_DIMMER'
 
     steps:
     - uses: actions/checkout@v2
+    - name: rename circuits
+      run: |
+        find Circuit -name "* *" | awk '{ print length, $0 }' | sort -nr -s | cut -d" " -f2- | while read f; do base=$(basename "$f"); newbase="${base// /_}"; mv "$(dirname "$f")/$(basename "$f")" "$(dirname "$f")/$newbase"; done
     - uses: INTI-CMNB/KiBot@v1
       with:
         # entrypoint: /github/workspace/entry.sh
         config: Circuit/config.kibot.yml
         dir: output
-        board: '\"\'Circuit/${{matrix.dir}}/${{matrix.filename}}.kicad_pcb\'\"'
-        schema: '\"\'Circuit/${{matrix.dir}}/${{matrix.filename}}.sch\'\"'
+        board: 'Circuit/${{matrix.dir}}/${{matrix.filename}}.kicad_pcb'
+        schema: 'Circuit/${{matrix.dir}}/${{matrix.filename}}.sch'
     - name: upload results
       uses: actions/upload-artifact@v2
       with:
