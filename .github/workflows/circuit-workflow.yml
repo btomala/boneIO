@@ -44,8 +44,8 @@ jobs:
         # entrypoint: /github/workspace/entry.sh
         config: Circuit/config.kibot.yml
         dir: output
-        board: "'Circuit/${{matrix.dir}}/${{matrix.filename}}.kicad_pcb'"
-        schema: "'Circuit/${{matrix.dir}}/${{matrix.filename}}.sch'"
+        board: `"'Circuit/${{matrix.dir}}/${{matrix.filename}}.kicad_pcb'"`
+        schema: `"'Circuit/${{matrix.dir}}/${{matrix.filename}}.sch'"`
     - name: upload results
       uses: actions/upload-artifact@v2
       with:
