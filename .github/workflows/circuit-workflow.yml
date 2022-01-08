@@ -24,8 +24,8 @@ jobs:
         # list of circuits here
         # - dir: "'boneIO\ -\ input\ board_BBB'"
         #   filename: "'boneIO_input\ board_BBB'"
-        - dir: 'boneIO - relay board 24x10A'
-          filename: 'boneIO - relay board'
+        - dir: 'boneIO\ -\ relay\ board\ 24x10A'
+          filename: 'boneIO\ -\ relay\ board'
         # - dir: "'boneIO\ -\ relay\ board\ 24x16A'"
         #   filename: "'boneIO\ -\ relay\ board'"
         # - dir: "'boneIO\ -\ relay\ board\ 32x5A'"
@@ -39,7 +39,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - uses: btomala/KiBot@5110af4689a9ddc377ffc92e650c8830dcd8f27b
+    - uses: INTI-CMNB/KiBot@v1
       with:
         # entrypoint: /github/workspace/entry.sh
         config: Circuit/config.kibot.yml
