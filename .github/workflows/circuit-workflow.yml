@@ -64,7 +64,7 @@ jobs:
       with:
         name: output
     - name: echo
-      run: echo ${{toJSONn(github)}}
+      run: echo ${{toJSON(github)}}
     - name: add output pdf to wiki
       run: |
         git config --local user.email "{{$github.actor}}}""
